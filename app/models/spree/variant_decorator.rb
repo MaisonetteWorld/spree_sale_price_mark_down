@@ -45,11 +45,5 @@ module Spree
     def mark_down_sale_price
       mark_down.calculate_sale_price(self) unless mark_down.blank?
     end
-
-    def cost_price
-      return self[:cost_price] * (1 - mark_down.amount/100) if self[:cost_price].present? && mark_down.present?
-
-      self[:cost_price]
-    end
   end
 end
